@@ -25,7 +25,10 @@ def run_analysis(book_list):
 def create_book_list(data_list):
     book_list = []
     # TODO: Write a function that will loop through data_list, and create a Book object for each list item
+    for book in data_list:
+        new_book = Book(book)
     # TODO: Then, add each Book item to book_list
+    book_list.append(new_book)
     # TODO: Finally, return book_list for use in analysis questions!
     return book_list
 
