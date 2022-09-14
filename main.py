@@ -1,3 +1,4 @@
+from audioop import reverse
 from data import data_list
 from book import Book
 
@@ -51,7 +52,7 @@ def example_analysis(book_list):
 def analysis_one(book_list):
     print("Analysis of which book had the lowest number of reviews in 2018")
     
-    books_2018 = list(filter(lambda book:book.year == 2016, book_list))
+    books_2018 = list(filter(lambda book:book.year == 2018, book_list))
 
     lowest_rating_book = min(books_2018,key=lambda book : book.number_of_reviews)
     print(
@@ -61,7 +62,15 @@ def analysis_one(book_list):
 
 def analysis_two(book_list):
     print("Analysis of which genre (fiction or non-fiction) has appeared the most in the top 50's list")
+    books_fiction = len(list(filter(lambda book:book.genre == 'Fiction', book_list)))
+    books_non_fiction = len(list(filter(lambda book:book.genre == 'Non Fiction', book_list)))
+    if books_fiction > books_non_fiction:
+        print(f"Fiction Books has appeared the most in the top 50's list with a value of {books_fiction} ")
+    else:
+        print(f"Non Fiction Books has appeared the most in the Top 50's list with a value of {books_non_fiction}") 
 
+
+    
 
 def analysis_three(book_list):
     print("Analysis of which book has appeared the most in the top 50's list, and how many times it has appeared")
