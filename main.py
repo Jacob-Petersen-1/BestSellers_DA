@@ -27,8 +27,8 @@ def create_book_list(data_list):
     # TODO: Write a function that will loop through data_list, and create a Book object for each list item
     for book in data_list:
         new_book = Book(book)
+        book_list.append(new_book)
     # TODO: Then, add each Book item to book_list
-    book_list.append(new_book)
     # TODO: Finally, return book_list for use in analysis questions!
     return book_list
 
@@ -37,6 +37,7 @@ def example_analysis(book_list):
     print("Analysis of which book had the highest price in 2016")
     # Find all books from 2016
     # Use a Lambda filter function to find books who have a year of 2016
+
     # Converting to a list, and saving as variable books_2016
     books_2016 = list(filter(lambda book: book.year == 2016, book_list))
     # Calculating the maximum price, and saving that book as highest_cost_book
@@ -49,6 +50,13 @@ def example_analysis(book_list):
 
 def analysis_one(book_list):
     print("Analysis of which book had the lowest number of reviews in 2018")
+    
+    books_2018 = list(filter(lambda book:book.year == 2016, book_list))
+
+    lowest_rating_book = min(books_2018,key=lambda book : book.number_of_reviews)
+    print(
+        f"Book with with lowest rating in 2018 {lowest_rating_book.name} with number of reviews {lowest_rating_book.number_of_reviews}"
+    )
 
 
 def analysis_two(book_list):
