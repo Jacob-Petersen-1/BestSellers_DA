@@ -1,6 +1,7 @@
-from audioop import reverse
+
 from data import data_list
 from book import Book
+from collections import Counter
 
 
 def run_analysis(book_list):
@@ -74,7 +75,19 @@ def analysis_two(book_list):
 
 def analysis_three(book_list):
     print("Analysis of which book has appeared the most in the top 50's list, and how many times it has appeared")
+    top_book = {'count': 0}
+    book_names = [book.name for book in book_list]
+    for name in set(book_names):
+        book_count = len(list(filter(lambda book_name: book_name == name, book_names)))
+        if(book_count > top_book['count']):
+            top_book = {'name': name, 'count': book_count}
+    
+    
+    print(top_book)
 
+    
+
+    
 
 # BONUS USER STORIES:
 
